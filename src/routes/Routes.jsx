@@ -21,7 +21,16 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       // Public pages
-      { index: true, Component: HomePage },
+      {
+        index: true,
+        Component: HomePage,
+        loader: async () => {
+          const res = await fetch('http://localhost:3000/Featured-Cars');
+          if (!res.ok) throw new Error('Failed to fetch Featured Cars');
+          return res.json();
+        }
+
+      },
       { path: 'browse-cars', Component: BrowseCars },
       { path: 'login', Component: Login },
       { path: 'register', Component: Register },

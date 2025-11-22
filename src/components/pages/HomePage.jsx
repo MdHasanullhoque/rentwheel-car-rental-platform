@@ -98,7 +98,7 @@ export default function HomePage() {
             </section>
 
 
-            {/* Why Rent With Us */}
+         
             {/* Why Rent With Us */}
             <section className="bg-gray-50 py-12 px-4 md:px-6">
                 <div className="max-w-7xl mx-auto text-center">
@@ -144,18 +144,41 @@ export default function HomePage() {
 
 
             {/* Extra Section 1 - Top Rated Cars */}
-            <section className="max-w-7xl mx-auto px-6">
-                <h2 className="text-3xl font-bold mb-6">Top Rated Cars</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {sampleCars.slice(0, 3).map(car => (
-                        <div key={car.id} className="border rounded-lg p-4 shadow hover:shadow-lg">
-                            <h3 className="text-xl font-semibold">{car.name}</h3>
-                            <p>Model: {car.model}</p>
-                            <p>Price: ${car.price}/day</p>
+            {/* Top Rated Cars */}
+            <section className="max-w-7xl mx-auto px-4 md:px-6 py-12">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center border-b-2 border-indigo-500 inline-block pb-1">
+                    Top Rated Cars
+                </h2>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {data.slice(0, 3).map(car => (
+                        <div
+                            key={car._id}
+                            className="border rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 bg-white"
+                        >
+                            <img
+                                src={car.imageUrl}
+                                alt={car.title}
+                                className="w-full h-48 sm:h-56 object-cover rounded-t-xl"
+                            />
+                            <div className="p-4">
+                                <h3 className="text-lg sm:text-xl font-bold mb-1">{car.title}</h3>
+                                <p className="text-gray-600 text-sm sm:text-base mb-1">{car.description}</p>
+                                <p className="text-sm sm:text-base mb-1">
+                                    <span className="font-semibold">Rent/day:</span> ${car.rentPerDay}
+                                </p>
+                                <p className="text-sm sm:text-base mb-1">
+                                    <span className="font-semibold">Category:</span> {car.category}
+                                </p>
+                                <p className="text-sm sm:text-base">
+                                    <span className="font-semibold">Provider:</span> {car.providerName}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </div>
             </section>
+
 
 
 

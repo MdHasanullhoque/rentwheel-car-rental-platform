@@ -82,7 +82,7 @@ export default function HomePage() {
                 <div className="max-w-7xl mx-auto px-6 text-center">
                     <h2 className="text-3xl font-bold mb-6">What Our Customers Say</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="p-6 bg-white rounded shadow">"Great service and smooth booking!" - Sarah</div>
+                        <div className="p-6 bg-white rounded shadow">"Great service and smooth booking!" - Sarah ALi</div>
                         <div className="p-6 bg-white rounded shadow">"Affordable rates and reliable cars." - John</div>
                         <div className="p-6 bg-white rounded shadow">"Highly recommend RentWheels!" - Priya</div>
                     </div>

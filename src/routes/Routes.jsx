@@ -50,6 +50,19 @@ export const router = createBrowserRouter([
         )
       },
 
+      //my listing
+
+      {
+        path: "/my-listings",
+        element: (
+          <PrivateRoute>
+            <MyListings />
+
+          </PrivateRoute>
+        )
+      },
+
+
 
 
       { path: 'browse-cars', Component: BrowseCars },

@@ -45,12 +45,17 @@ export default function HomePage() {
                                     className="w-full h-48 sm:h-56 md:h-48 lg:h-52 object-cover rounded mb-2"
                                 />
                                 <h3 className="text-lg md:text-xl font-semibold">{car.title}</h3>
-                                <p className="text-gray-600 text-sm md:text-base">{car.description}</p>
+                                {/* <p className="text-gray-600 text-sm md:text-base">{car.description}</p> */}
                                 <p className="mt-1 text-sm md:text-base">Category: {car.category}</p>
-                                <p className="text-sm md:text-base">Rent per day: ${car.rentPerDay}</p>
+                                {/* <p className="text-sm md:text-base">Rent per day: ${car.rentPerDay}</p> */}
+                                <p>Rent/day: $<span className="font-semibold">{car.rentPerDay}</span></p>
                                 <p className="text-sm md:text-base">Location: {car.location}</p>
                                 <p className="text-sm md:text-base">Provider: {car.providerName}</p>
-                                <p className="text-sm md:text-base">Status: {car.status}</p>
+                                {/* <p className="text-sm md:text-base">Status: {car.status}</p> */}
+                                <p className={`mb-2 font-semibold ${car.status === "Unavailable" ? "text-red-400" : "text-green-600"
+                                    }`}>
+                                    <span>Status:</span> {car.status}
+                                </p>
                                 <div className="flex flex-wrap gap-2 mt-2">
 
                                     {car.tags.map(tag => (

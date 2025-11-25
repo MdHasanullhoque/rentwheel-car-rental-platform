@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function MyListings() {
 
-    
+
     const { user } = useContext(AuthContext);
     const [cars, setCars] = useState([]);
 
@@ -48,7 +48,7 @@ export default function MyListings() {
         <div className="max-w-5xl mx-auto p-6">
             <h2 className="text-3xl font-bold mb-4">My Listings</h2>
 
-            <table className="w-full border">
+            <table className="w-full border-collapse border border-gray-300 text-center">
                 <thead>
                     <tr className="bg-gray-200">
                         <th className="p-2">Car Name</th>
@@ -66,7 +66,8 @@ export default function MyListings() {
                             <td className="p-2">{car.category}</td>
                             <td className="p-2">${car.rentPerDay}</td>
                             <td className="p-2">{car.status}</td>
-                            <td className="p-2">
+
+                            <td className="p-2 flex justify-center gap-2">
                                 <button
                                     onClick={() => navigate(`/update-car/${car._id}`)}
                                     className="bg-yellow-500 text-white px-2 py-1 rounded"

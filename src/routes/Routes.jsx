@@ -75,6 +75,15 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:3000/Featured-Cars/${params.id}`),
       },
 
+      //mybookings
+      {
+        path: "/my-bookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        )
+      },
 
       { path: 'browse-cars', Component: BrowseCars },
       { path: 'login', Component: Login },

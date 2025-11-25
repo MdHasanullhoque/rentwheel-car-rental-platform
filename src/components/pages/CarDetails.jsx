@@ -40,13 +40,30 @@ export default function CarDetails() {
             <h2>{car.title}</h2>
             <img src={car.imageUrl} alt={car.title} />
             <p>{car.description}</p>
-            <p>Category: {car.category}</p>
-            <p>Rent/day: ${car.rentPerDay}</p>
-            <p>Status: {car.status}</p>
+            <p className="font-semi">Category: {car.category}</p>
+            <p>Rent/day: $<span className="font-semibold">{car.rentPerDay}</span></p>
+            {/* <p>Status: {car.status}</p> */}
 
-            <button onClick={handleBookNow} disabled={car.status === "Unavailable"}>
+            <p className={`mb-2 font-semibold ${car.status === "Unavailable" ? "text-red-400" : "text-green-600"
+                }`}>
+                <span>Status:</span> {car.status}
+            </p>
+
+
+            {/* <button className="border-2 w-40" onClick={handleBookNow} disabled={car.status === "Unavailable"}>
+                {car.status === "Unavailable" ? "Already Booked" : "Book Now"}
+            </button> */}
+
+
+
+            <button
+                className={`border-2 w-40 px-2 py-1 rounded font-medium ${car.status === "Unavailable" ? "bg-red-400 text-white cursor-not-allowed" : "bg-green-500 text-white hover:bg-green-600"}`}
+                onClick={handleBookNow}
+                disabled={car.status === "Unavailable"}
+            >
                 {car.status === "Unavailable" ? "Already Booked" : "Book Now"}
             </button>
+
         </div>
     );
 }

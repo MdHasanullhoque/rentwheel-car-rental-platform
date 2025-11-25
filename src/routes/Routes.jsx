@@ -13,6 +13,7 @@ import NotFound from '../components/pages/NotFound.jsx';
 import PrivateRoute from '../firebase/PrivateRoute.jsx';
 import Login from '../components/pages/Login.jsx';
 import Register from '../components/pages/Register.jsx';
+import UpdateCar from '../components/pages/UpdateCar.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -62,7 +63,17 @@ export const router = createBrowserRouter([
         )
       },
 
-
+      //update car 
+      {
+        path: 'update-car/:id',
+        element: (
+          <PrivateRoute>
+            <UpdateCar />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/Featured-Cars/${params.id}`),
+      },
 
 
       { path: 'browse-cars', Component: BrowseCars },

@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../firebase/AuthContext";
+import { useNavigate } from "react-router-dom";
+
 
 export default function MyListings() {
+
+    
     const { user } = useContext(AuthContext);
     const [cars, setCars] = useState([]);
 
@@ -12,6 +16,33 @@ export default function MyListings() {
                 .then(data => setCars(data.data || []));
         }
     }, [user]);
+    const navigate = useNavigate();
+
+
+    //delete
+    const handleDelete = async (id) => {
+        if (!window.confirm("Are you sure you want to delete this car?")) return;
+
+        try {
+            const res = await fetch(`http://localhost:3000/delete-car/${id}`, {
+                method: "DELETE"
+            });
+
+            const data = await res.json();
+            if (data.success) {
+                alert("Car deleted successfully");
+                setCars(cars.filter(car => car._id !== id)); // UI update
+            } else {
+                alert(data.message || "Failed to delete");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Failed to delete");
+        }
+    };
+
+
 
     return (
         <div className="max-w-5xl mx-auto p-6">
@@ -36,12 +67,21 @@ export default function MyListings() {
                             <td className="p-2">${car.rentPerDay}</td>
                             <td className="p-2">{car.status}</td>
                             <td className="p-2">
-                                <button className="bg-blue-600 text-white px-3 py-1 rounded mr-2">
+                                <button
+                                    onClick={() => navigate(`/update-car/${car._id}`)}
+                                    className="bg-yellow-500 text-white px-2 py-1 rounded"
+                                >
                                     Update
                                 </button>
-                                <button className="bg-red-600 text-white px-3 py-1 rounded">
+
+                                <button
+                                    onClick={() => handleDelete(car._id)}
+                                    className="bg-red-500 text-white px-3 py-1 rounded"
+                                >
                                     Delete
                                 </button>
+
+
                             </td>
                         </tr>
                     ))}

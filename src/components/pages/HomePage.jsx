@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import FeaturedCard from './FeaturedCard';
+import HeroSlider from './HeroSlider';
 
 // Sample cars for UI preview
 
@@ -12,6 +13,7 @@ export default function HomePage() {
     console.log(data)
 
     return (
+
         <div className="space-y-20">
 
             {/* Hero Banner */}
@@ -24,7 +26,9 @@ export default function HomePage() {
             </section>
 
 
+            {/* hero slider */}
 
+            <HeroSlider />
 
 
             {/* Featured Cars */}
@@ -94,28 +98,28 @@ export default function HomePage() {
 
                         {/* Easy Booking */}
                         <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 flex flex-col items-center">
-                            <span className="text-5xl mb-3 text-blue-500">img</span>
+                            {/* <span className="text-5xl mb-3 text-blue-500">img</span> */}
                             <h3 className="font-semibold mb-2 text-lg sm:text-xl">Easy Booking</h3>
                             <p className="text-gray-600 text-sm sm:text-base">Book cars in minutes with a simple interface.</p>
                         </div>
 
                         {/* Affordable Rates */}
                         <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 flex flex-col items-center">
-                            <span className="text-5xl mb-3 text-green-500">img</span>
+                            {/* <span className="text-5xl mb-3 text-green-500">img</span> */}
                             <h3 className="font-semibold mb-2 text-lg sm:text-xl">Affordable Rates</h3>
                             <p className="text-gray-600 text-sm sm:text-base">Get the best prices for top-quality cars.</p>
                         </div>
 
                         {/* Trusted Providers */}
                         <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 flex flex-col items-center">
-                            <span className="text-5xl mb-3 text-yellow-500">img</span>
+                            {/* <span className="text-5xl mb-3 text-yellow-500">img</span> */}
                             <h3 className="font-semibold mb-2 text-lg sm:text-xl">Trusted Providers</h3>
                             <p className="text-gray-600 text-sm sm:text-base">We work only with verified car owners.</p>
                         </div>
 
                         {/* 24/7 Support */}
                         <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 flex flex-col items-center">
-                            <span className="text-5xl mb-3 text-red-500">img</span>
+                            {/* <span className="text-5xl mb-3 text-red-500">img</span> */}
                             <h3 className="font-semibold mb-2 text-lg sm:text-xl">24/7 Support</h3>
                             <p className="text-gray-600 text-sm sm:text-base">Always here to help you anytime, anywhere.</p>
                         </div>

@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Slider from 'react-slick';
 import { toast } from 'react-toastify';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+
 
 export default function HeroSlider() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -29,8 +35,58 @@ export default function HeroSlider() {
         setLoading(false);
     };
 
+
+    //  Slider Settings
+    const settings = {
+        dots: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed: 700,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+    };
     return (
         <div className="my-6 text-center">
+
+            {/*  Hero Slider Start */}
+
+            <div className="hero-section my-6 max-w-6xl mx-auto">
+
+                <Slider {...settings}>
+
+                    <div className="h-64 md:h-96 relative">
+                       
+                        <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-4xl font-bold bg-black bg-opacity-30">
+                            Fast & Easy Car Rentals
+                        </h1>
+                    </div>
+
+                    <div className="h-64 md:h-96 relative">
+                       
+                        <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-4xl font-bold bg-black bg-opacity-30">
+                            Affordable Daily Rentals
+                        </h1>
+                    </div>
+
+                    <div className="h-64 md:h-96 relative">
+                        
+                        <h1 className="absolute inset-0 flex items-center justify-center text-white text-2xl md:text-4xl font-bold bg-black bg-opacity-30">
+                            24/7 Customer Support
+                        </h1>
+                    </div>
+
+
+
+
+
+                </Slider>
+            </div>
+
+            {/* Hero Slider End */}
+
+
             {/* Search Input */}
             <input
                 type="text"

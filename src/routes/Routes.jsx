@@ -1,5 +1,109 @@
 
 
+// import React from 'react';
+// import { createBrowserRouter } from 'react-router-dom';
+// import Root from '../Root/Root.jsx';
+// import HomePage from '../components/pages/HomePage.jsx';
+// import BrowseCars from '../components/pages/BrowseCars.jsx';
+// import AddCar from '../components/pages/AddCar.jsx';
+// import MyListings from '../components/pages/MyListings.jsx';
+// import MyBookings from '../components/pages/MyBookings.jsx';
+// import CarDetails from '../components/pages/CarDetails.jsx';
+// import NotFound from '../components/pages/NotFound.jsx';
+// import PrivateRoute from '../firebase/PrivateRoute.jsx';
+// import Login from '../components/pages/Login.jsx';
+// import Register from '../components/pages/Register.jsx';
+// import UpdateCar from '../components/pages/UpdateCar.jsx';
+
+// export const router = createBrowserRouter([
+//   {
+//     path: '/',
+//     Component: Root,
+//     errorElement: <NotFound />,
+//     children: [
+//       // Public pages
+//       {
+//         index: true,
+//         Component: HomePage,
+//         loader: async () => {
+//           const res = await fetch('http://localhost:3000/Featured-Cars');
+//           if (!res.ok) throw new Error('Failed to fetch Featured Cars');
+//           return res.json();
+//         }
+
+//       },
+
+//       {
+//         path: "/Featured-Cars/:id",
+//         element: <CarDetails />,
+//         loader: ({ params }) =>
+//           fetch(`http://localhost:3000/Featured-Cars/${params.id}`)
+//       },
+
+//       //add car 
+
+//       {
+//         path: "/add-car",
+//         element: (
+//           <PrivateRoute>
+//             <AddCar />
+//           </PrivateRoute>
+//         )
+//       },
+
+//       //my listing
+
+//       {
+//         path: "/my-listings",
+//         element: (
+//           <PrivateRoute>
+//             <MyListings />
+
+//           </PrivateRoute>
+//         )
+//       },
+
+//       //update car 
+//       {
+//         path: 'update-car/:id',
+//         element: (
+//           <PrivateRoute>
+//             <UpdateCar />
+//           </PrivateRoute>
+//         ),
+//         loader: ({ params }) =>
+//           fetch(`http://localhost:3000/Featured-Cars/${params.id}`),
+//       },
+
+//       //mybookings
+//       {
+//         path: "/my-bookings",
+//         element: (
+//           <PrivateRoute>
+//             <MyBookings />
+//           </PrivateRoute>
+//         )
+//       },
+
+//       { path: 'browse-cars', Component: BrowseCars },
+//       { path: 'login', Component: Login },
+//       { path: 'register', Component: Register },
+
+//       // Private pages
+//       { path: 'add-car', Component: () => <PrivateRoute><AddCar /></PrivateRoute> },
+//       { path: 'my-listings', Component: () => <PrivateRoute><MyListings /></PrivateRoute> },
+//       { path: 'my-bookings', Component: () => <PrivateRoute><MyBookings /></PrivateRoute> },
+//       { path: 'cars/:id', Component: () => <PrivateRoute><CarDetails /></PrivateRoute> },
+
+//       // 404 fallback
+//       { path: '*', Component: NotFound },
+//     ],
+//   },
+// ]);
+
+
+
+
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../Root/Root.jsx';
@@ -15,6 +119,9 @@ import Login from '../components/pages/Login.jsx';
 import Register from '../components/pages/Register.jsx';
 import UpdateCar from '../components/pages/UpdateCar.jsx';
 
+// Live API base URL
+const BASE_URL = 'https://rentwheels-api-server-seven.vercel.app';
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -26,22 +133,19 @@ export const router = createBrowserRouter([
         index: true,
         Component: HomePage,
         loader: async () => {
-          const res = await fetch('http://localhost:3000/Featured-Cars');
+          const res = await fetch(`${BASE_URL}/Featured-Cars`);
           if (!res.ok) throw new Error('Failed to fetch Featured Cars');
           return res.json();
         }
-
       },
-
       {
         path: "/Featured-Cars/:id",
         element: <CarDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/Featured-Cars/${params.id}`)
+          fetch(`${BASE_URL}/Featured-Cars/${params.id}`)
       },
 
-      //add car 
-
+      // Add car
       {
         path: "/add-car",
         element: (
@@ -51,19 +155,17 @@ export const router = createBrowserRouter([
         )
       },
 
-      //my listing
-
+      // My Listings
       {
         path: "/my-listings",
         element: (
           <PrivateRoute>
             <MyListings />
-
           </PrivateRoute>
         )
       },
 
-      //update car 
+      // Update car
       {
         path: 'update-car/:id',
         element: (
@@ -72,10 +174,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/Featured-Cars/${params.id}`),
+          fetch(`${BASE_URL}/Featured-Cars/${params.id}`),
       },
 
-      //mybookings
+      // My Bookings
       {
         path: "/my-bookings",
         element: (
@@ -85,11 +187,12 @@ export const router = createBrowserRouter([
         )
       },
 
+      // Other pages
       { path: 'browse-cars', Component: BrowseCars },
       { path: 'login', Component: Login },
       { path: 'register', Component: Register },
 
-      // Private pages
+      // Private pages duplicate (optional)
       { path: 'add-car', Component: () => <PrivateRoute><AddCar /></PrivateRoute> },
       { path: 'my-listings', Component: () => <PrivateRoute><MyListings /></PrivateRoute> },
       { path: 'my-bookings', Component: () => <PrivateRoute><MyBookings /></PrivateRoute> },
@@ -100,7 +203,3 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
-
-
-
-

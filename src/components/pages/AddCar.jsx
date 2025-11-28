@@ -28,7 +28,7 @@ export default function AddCar() {
             providerEmail: user?.email,
         };
 
-        const res = await fetch("http://localhost:3000/add-car", {
+        const res = await fetch("https://rentwheels-api-server-seven.vercel.app/add-car", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newCar),

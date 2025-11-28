@@ -22,7 +22,7 @@ export default function HeroSlider() {
 
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3000/search-cars?title=${searchTerm}`);
+            const res = await fetch(`https://rentwheels-api-server-seven.vercel.app/search-cars?title=${searchTerm}`);
             if (!res.ok) throw new Error("Search failed");
 
             const data = await res.json();

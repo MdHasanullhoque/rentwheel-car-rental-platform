@@ -22,7 +22,7 @@ export default function CarDetails() {
         };
 
         try {
-            const res = await fetch("http://localhost:3000/book-car", {
+            const res = await fetch("https://rentwheels-api-server-seven.vercel.app/book-car", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(bookingInfo),

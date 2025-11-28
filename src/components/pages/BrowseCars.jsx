@@ -7,7 +7,7 @@ export default function BrowseCars() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3000/Featured-Cars")
+        fetch("https://rentwheels-api-server-seven.vercel.app/Featured-Cars")
             .then(res => res.json())
             .then(data => {
                 // available

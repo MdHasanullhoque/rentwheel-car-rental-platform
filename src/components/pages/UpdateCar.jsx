@@ -13,7 +13,7 @@ export default function UpdateCar() {
 
     // Fetch car data
     useEffect(() => {
-        fetch(`http://localhost:3000/Featured-Cars/${id}`)
+        fetch(`https://rentwheels-api-server-seven.vercel.app/Featured-Cars/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setCar(data);
@@ -44,7 +44,7 @@ export default function UpdateCar() {
         };
 
         try {
-            const res = await fetch(`http://localhost:3000/update-car/${id}`, {
+            const res = await fetch(`https://rentwheels-api-server-seven.vercel.app/update-car/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(updatedCar),

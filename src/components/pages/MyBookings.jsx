@@ -11,7 +11,7 @@ export default function MyBookings() {
     useEffect(() => {
         if (!user) return;
 
-        fetch(`http://localhost:3000/my-bookings/${user.email}`)
+        fetch(`https://rentwheels-api-server-seven.vercel.app/my-bookings/${user.email}`)
             .then(res => res.json())
             .then(data => setBookings(data))
             .catch(() => toast.error("Failed to fetch your bookings"));
@@ -23,7 +23,7 @@ export default function MyBookings() {
         if (!window.confirm("Are you sure to cancel this booking?")) return;
 
         try {
-            const res = await fetch(`http://localhost:3000/cancel-booking/${bookingId}`, {
+            const res = await fetch(`https://rentwheels-api-server-seven.vercel.app/cancel-booking/${bookingId}`, {
                 method: "DELETE"
             });
             const data = await res.json();
@@ -63,7 +63,7 @@ export default function MyBookings() {
                 ))}
             </div>
 
-            {/* ⭐ Desktop View → Table */}
+            {/*  Desktop View → Table */}
             <table className="hidden md:table w-full border border-gray-300 text-center">
                 <thead>
                     <tr className="bg-gray-200">

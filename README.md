@@ -1,3 +1,66 @@
+# RentWheels - Car Rental Platform
+
+**Live Site:** 
+
+---
+
+## Project Overview
+RentWheels is a responsive car rental platform where users can browse, search, and book cars online effortlessly. The website is designed to provide a seamless user experience with modern UI components and smooth navigation.
+
+---
+
+## Key Features
+
+- **Browse Cars:** View all available cars with detailed information including price, model, and availability.
+- **Search Functionality:** Quickly find cars by title or category using the intuitive search bar.
+- **Responsive Design:** Fully responsive layout for desktop, tablet, and mobile devices.
+- **User Authentication:** Secure login and registration system for customers.
+- **Book Now:** Easy booking process with real-time availability checks and confirmation.
+- **Hero Slider:** Attractive homepage slider showcasing featured cars and promotions.
+- **ashboard (optional):** Manage cars, bookings, and user information efficiently.
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, Vite, Tailwind CSS 
+- **Backend:** Node.js / Express 
+- **Database:** MongoDB / Firebase 
+- **Routing:** React Router
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

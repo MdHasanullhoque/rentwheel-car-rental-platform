@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../firebase/AuthContext";
 
 export default function UpdateCar() {
-    const { id } = useParams(); // URL থেকে car id
+    const { id } = useParams(); // URL 
     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
